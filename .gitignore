@@ -55,6 +55,7 @@ testem.log
 /reports
 /src/translations/template.*
 /src/environments/.env.*
+.angular
 
 # System Files
 .DS_Store
