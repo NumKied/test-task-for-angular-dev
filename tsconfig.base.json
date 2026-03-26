@@ -1,0 +1,35 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "module": "es2020",
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "noImplicitAny": true,
+    "target": "ES2022",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2018", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@ng-x-rocket/*": ["apps/ng-x-rocket/src/app/*"],
+      "@ng-x-rocket/core": ["apps/ng-x-rocket/src/app/@core"],
+      "@ng-x-rocket/core/*": ["apps/ng-x-rocket/src/app/@core/*"],
+      "@ng-x-rocket/shared": ["apps/ng-x-rocket/src/app/@shared"],
+      "@ng-x-rocket/shared/*": ["apps/ng-x-rocket/src/app/@shared/*"],
+      "@ng-x-rocket/env/*": ["apps/ng-x-rocket/src/environments/*"]
+    },
+    "useDefineForClassFields": false,
+    "rootDir": "."
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "preserveWhitespaces": true
+  },
+  "exclude": ["node_modules", "tmp"]
+}

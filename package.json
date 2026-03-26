@@ -4,22 +4,20 @@
   "private": true,
   "scripts": {
     "ng": "ng",
-    "build": "npm run write:env -s && ng build --configuration production",
-    "start": "npm run write:env -s && ng serve --proxy-config proxy.conf.js",
+    "build": "npm run write:env -s && nx build --configuration production",
+    "start": "npm run write:env -s && nx serve --proxy-config proxy.conf.js",
     "serve:sw": "npm run build -s && npx http-server ./dist -p 4200",
-    "lint": "ng lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
-    "test": "npm run write:env -s && ng test",
-    "test:ci": "npm run write:env -s && npm run lint -s && ng test --configuration=ci",
-    "e2e": "npm run write:env -s && ng e2e",
+    "lint": "nx lint && stylelint \"src/**/*.scss\" --syntax scss && htmlhint \"src\" --config .htmlhintrc",
+    "test": "npm run write:env -s && nx test",
+    "test:ci": "npm run write:env -s && npm run lint -s && nx test --configuration=ci",
+    "e2e": "npm run write:env -s && nx e2e",
     "translations:extract": "ngx-translate-extract --input ./src --output ./src/translations/template.json --format=json --clean --sort",
     "docs": "hads ./docs -o",
     "write:env": "ngx-scripts env npm_package_version",
-    "prettier": "prettier --write \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
-    "prettier:check": "prettier --list-different \"./{src,e2e}/**/*.{ts,js,html,scss}\"",
-    "postinstall": "npm run prettier -s",
-    "generate": "ng generate"
+    "generate": "nx generate"
   },
   "dependencies": {
+    "@angular-devkit/build-angular": "^20.3.18",
     "@angular/animations": "^20.3.18",
     "@angular/common": "^20.3.18",
     "@angular/compiler": "^20.3.18",
@@ -39,21 +37,32 @@
     "bootstrap": "^4.5.3",
     "ngx-translate-extract": "^1.0.0",
     "rxjs": "^6.6.3",
-    "tslib": "^2.0.1",
+    "tslib": "^2.3.0",
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^20.3.21",
     "@angular/cli": "^20.3.21",
     "@angular/compiler-cli": "^20.3.18",
     "@angular/language-service": "^20.3.18",
+    "@eslint/js": "^9.8.0",
     "@ngneat/until-destroy": "^8.0.3",
     "@ngx-rocket/scripts": "^5.0.0",
+    "@nx/angular": "^22.6.1",
+    "@nx/eslint": "22.6.1",
+    "@nx/eslint-plugin": "22.6.1",
+    "@nx/js": "22.6.1",
+    "@nx/workspace": "22.6.1",
+    "@schematics/angular": "^20.3.21",
+    "@swc-node/register": "~1.11.1",
+    "@swc/core": "~1.15.5",
+    "@swc/helpers": "~0.5.18",
     "@types/jasmine": "^3.6.2",
     "@types/jasminewd2": "^2.0.8",
     "@types/jest": "^30.0.0",
     "@types/node": "^12.19.12",
     "codelyzer": "^6.0.1",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^10.0.0",
     "hads": "^3.0.0",
     "htmlhint": "^0.14.2",
     "https-proxy-agent": "^5.0.0",
@@ -62,8 +71,9 @@
     "jasmine-spec-reporter": "~6.0.0",
     "jest": "^30.3.0",
     "jest-preset-angular": "^16.1.1",
-    "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0",
+    "nx": "22.6.1",
+    "prettier": "~3.6.2",
+    "pretty-quick": "^4.2.2",
     "protractor": "~7.0.0",
     "stylelint": "~13.8.0",
     "stylelint-config-prettier": "^8.0.2",
@@ -74,7 +84,8 @@
     "ts-node": "^9.1.1",
     "tslint": "~6.1.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "~5.8.3"
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.40.0"
   },
   "prettier": {
     "singleQuote": true,
@@ -91,5 +102,6 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  }
+  },
+  "nx": {}
 }
