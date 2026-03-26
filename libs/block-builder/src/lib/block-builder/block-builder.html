@@ -1,0 +1,25 @@
+<div class="blocks-section">
+  <h4>Blocks</h4>
+  <div class="blocks" cdkDropList [cdkDropListData]="blocks()" (cdkDropListDropped)="dropBlock($event)">
+    @for (block of blocks(); let blockIndex = $index; track blockIndex) {
+    <div class="block" cdkDrag>
+      <mat-form-field subscriptSizing="dynamic">
+        <mat-label>Choose an option</mat-label>
+        <mat-select [value]="block.key" (valueChange)="updateBlock($event, blockIndex)">
+          @for (key of keysArr(); track key) {
+          <mat-option [value]="key">{{key}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <span class="block-value">{{block.value}}</span>
+
+      <button matIconButton class="delete-block" (click)="deleteBlock(blockIndex)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    }
+  </div>
+
+  <button matButton="filled" (click)="addBlock()">Add block</button>
+</div>

@@ -5,6 +5,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '@ng-x-rocket/env/environment';
 import { CoreModule } from '@ng-x-rocket/core';
@@ -30,6 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
     HomeModule,
     AuthModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [provideHttpClient(withInterceptorsFromDi())],
 })
