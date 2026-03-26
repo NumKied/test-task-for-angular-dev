@@ -21,7 +21,8 @@
       "@ng-x-rocket/core/*": ["apps/ng-x-rocket/src/app/@core/*"],
       "@ng-x-rocket/shared": ["apps/ng-x-rocket/src/app/@shared"],
       "@ng-x-rocket/shared/*": ["apps/ng-x-rocket/src/app/@shared/*"],
-      "@ng-x-rocket/env/*": ["apps/ng-x-rocket/src/environments/*"]
+      "@ng-x-rocket/env/*": ["apps/ng-x-rocket/src/environments/*"],
+      "block-builder": ["libs/block-builder/src/index.ts"]
     },
     "useDefineForClassFields": false,
     "rootDir": "."
