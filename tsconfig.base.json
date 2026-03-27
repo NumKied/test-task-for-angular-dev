@@ -22,7 +22,10 @@
       "@ng-x-rocket/shared": ["apps/ng-x-rocket/src/app/@shared"],
       "@ng-x-rocket/shared/*": ["apps/ng-x-rocket/src/app/@shared/*"],
       "@ng-x-rocket/env/*": ["apps/ng-x-rocket/src/environments/*"],
-      "block-builder": ["libs/block-builder/src/index.ts"]
+      "block-builder": ["libs/block-builder/src/index.ts"],
+      "weather": ["libs/weather/packages/index.ts"],
+      "weather/state": ["libs/weather/packages/state/index.ts"],
+      "weather/ui": ["libs/weather/packages/ui/index.ts"]
     },
     "useDefineForClassFields": false,
     "rootDir": "."
