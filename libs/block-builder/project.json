@@ -6,6 +6,16 @@
   "projectType": "library",
   "tags": ["ui"],
   "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/block-builder",
+        "main": "libs/block-builder/src/index.ts",
+        "tsConfig": "libs/block-builder/tsconfig.lib.json",
+        "assets": ["libs/block-builder/*.md"]
+      }
+    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

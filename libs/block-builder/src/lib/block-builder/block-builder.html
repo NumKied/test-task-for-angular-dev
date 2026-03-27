@@ -1,5 +1,4 @@
 <div class="blocks-section">
-  <h4>Blocks</h4>
   <div class="blocks" cdkDropList [cdkDropListData]="blocks()" (cdkDropListDropped)="dropBlock($event)">
     @for (block of blocks(); let blockIndex = $index; track blockIndex) {
     <div class="block" cdkDrag>
