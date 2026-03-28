@@ -71,7 +71,7 @@
     "angular-eslint": "^20.3.0",
     "autoprefixer": "^10.4.0",
     "codelyzer": "^6.0.1",
-    "eslint": "^9.8.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.0.0",
     "hads": "^3.0.0",
     "htmlhint": "^0.14.2",
@@ -98,8 +98,6 @@
     "stylelint-scss": "~3.18.0",
     "ts-jest": "^29.4.6",
     "ts-node": "^9.1.1",
-    "tslint": "~6.1.0",
-    "tslint-config-prettier": "^1.18.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.40.0"
   },
