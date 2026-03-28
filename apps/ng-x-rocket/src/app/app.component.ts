@@ -6,9 +6,9 @@ import { merge } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
-import { environment } from '@ng-x-rocket/env/environment';
-import { Logger } from '@ng-x-rocket/core';
-import { I18nService } from '@ng-x-rocket/i18n';
+import { environment } from '../environments/environment';
+import { Logger } from './@core';
+import { I18nService } from './i18n';
 
 const log = new Logger('App');
 

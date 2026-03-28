@@ -2,7 +2,7 @@ import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { CoreModule } from '@ng-x-rocket/core';
+import { CoreModule } from '../@core';
 import { QuoteService } from './quote.service';
 
 describe('QuoteService', () => {

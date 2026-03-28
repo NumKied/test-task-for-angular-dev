@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { marker } from '@larrym/ngx-translate-extract-marker';
 
 import { HomeComponent } from './home.component';
-import { Shell } from '@ng-x-rocket/shell/shell.service';
+import { Shell } from '../shell/shell.service';
 
 const routes: Routes = [
   Shell.childRoutes([

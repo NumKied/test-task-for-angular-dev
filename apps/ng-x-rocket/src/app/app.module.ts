@@ -7,10 +7,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { environment } from '@ng-x-rocket/env/environment';
-import { CoreModule } from '@ng-x-rocket/core';
-import { SharedModule } from '@ng-x-rocket/shared';
-import { AuthModule } from '@ng-x-rocket/auth';
+import { environment } from '../environments/environment';
+import { CoreModule } from './@core';
+import { SharedModule } from './@shared';
+import { AuthModule } from './auth';
 import { HomeModule } from './home/home.module';
 import { ShellModule } from './shell/shell.module';
 import { AppComponent } from './app.component';

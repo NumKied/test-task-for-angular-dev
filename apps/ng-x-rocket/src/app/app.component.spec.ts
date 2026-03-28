@@ -2,7 +2,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { CoreModule } from '@ng-x-rocket/core';
+import { CoreModule } from './@core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {

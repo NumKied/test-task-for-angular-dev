@@ -3,12 +3,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { CoreModule } from '@ng-x-rocket/core';
-import { AuthenticationService, CredentialsService } from '@ng-x-rocket/auth';
-import { MockAuthenticationService } from '@ng-x-rocket/auth/authentication.service.mock';
-import { MockCredentialsService } from '@ng-x-rocket/auth/credentials.service.mock';
+import { CoreModule } from '../@core';
+import { AuthenticationService, CredentialsService } from '../auth';
+import { MockAuthenticationService } from '../auth/authentication.service.mock';
+import { MockCredentialsService } from '../auth/credentials.service.mock';
 
-import { I18nModule } from '@ng-x-rocket/i18n';
+import { I18nModule } from '../i18n';
 import { ShellComponent } from './shell.component';
 import { HeaderComponent } from './header/header.component';
 

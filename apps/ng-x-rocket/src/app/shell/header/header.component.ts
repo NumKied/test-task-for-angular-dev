@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthenticationService, CredentialsService } from '@ng-x-rocket/auth';
+import { AuthenticationService, CredentialsService } from '../../auth';
 
 @Component({
   selector: 'app-header',

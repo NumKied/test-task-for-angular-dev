@@ -16,12 +16,6 @@
     "lib": ["es2018", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@ng-x-rocket/*": ["apps/ng-x-rocket/src/app/*"],
-      "@ng-x-rocket/core": ["apps/ng-x-rocket/src/app/@core"],
-      "@ng-x-rocket/core/*": ["apps/ng-x-rocket/src/app/@core/*"],
-      "@ng-x-rocket/shared": ["apps/ng-x-rocket/src/app/@shared"],
-      "@ng-x-rocket/shared/*": ["apps/ng-x-rocket/src/app/@shared/*"],
-      "@ng-x-rocket/env/*": ["apps/ng-x-rocket/src/environments/*"],
       "block-builder": ["libs/block-builder/src/index.ts"],
       "weather": ["libs/weather/packages/index.ts"],
       "weather/state": ["libs/weather/packages/state/index.ts"],
@@ -32,7 +26,6 @@
     "rootDir": "."
   },
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
     "preserveWhitespaces": true
   },
