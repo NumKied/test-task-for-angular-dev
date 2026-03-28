@@ -4,7 +4,7 @@
   "sourceRoot": "libs/shared/helpers/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [],
+  "tags": ["util"],
   "targets": {
     "build": {
       "executor": "@nx/angular:ng-packagr-lite",
