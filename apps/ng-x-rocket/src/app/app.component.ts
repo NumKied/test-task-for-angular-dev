@@ -4,9 +4,10 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { merge } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 import { environment } from '@ng-x-rocket/env/environment';
-import { Logger, UntilDestroy, untilDestroyed } from '@ng-x-rocket/core';
+import { Logger } from '@ng-x-rocket/core';
 import { I18nService } from '@ng-x-rocket/i18n';
 
 const log = new Logger('App');
