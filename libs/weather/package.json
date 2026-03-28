@@ -1,0 +1,24 @@
+{
+  "name": "weather",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/core": "^20.3.0"
+  },
+  "sideEffects": false,
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "options": {
+          "main": "packages/index.ts",
+          "additionalEntryPoints": [
+            "packages/state/src/index.ts",
+            "packages/ui/src/index.ts"
+          ],
+          "generateExportsField": true
+        }
+      }
+    }
+  }
+}
