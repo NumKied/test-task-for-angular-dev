@@ -17,7 +17,11 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['plugin:@typescript-eslint/recommended', 'plugin:@typescript-eslint/recommended-requiring-type-checking'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier',
+  ],
   language: '@/js',
   languageOptions: {
     sourceType: 'module',
