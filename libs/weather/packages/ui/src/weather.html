@@ -1,1 +1,8 @@
-<h4>Weather blocks</h4>
+<div class="weather-header">
+  <h4>Weather blocks</h4>
+  <button matButton="filled" (click)="getWeather()">Get weather forecast</button>
+</div>
+
+@if (weatherState()) {
+<lib-block-builder [blockObject]="weatherState()"></lib-block-builder>
+}
