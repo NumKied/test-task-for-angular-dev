@@ -92,9 +92,10 @@
       }
     },
     "test": {
-      "executor": "@nx/jest:run",
+      "executor": "@nx/jest:jest",
       "options": {
-        "watch": true
+        "watch": true,
+        "jestConfig": "apps/ng-x-rocket/jest.config.ts"
       },
       "configurations": {
         "ci": {
@@ -110,6 +111,12 @@
       "options": {
         "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
         "exclude": ["**/node_modules/**"]
+      }
+    },
+    "write-env": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ngx-scripts env npm_package_version --out apps/ng-x-rocket/src/environments/.env.ts"
       }
     }
   }
