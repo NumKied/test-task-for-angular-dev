@@ -1,0 +1,13 @@
+.weather-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+  button {
+    margin-left: 14px;
+  }
+}

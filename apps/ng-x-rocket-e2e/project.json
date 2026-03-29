@@ -1,0 +1,16 @@
+{
+  "name": "ng-x-rocket-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ng-x-rocket-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "options": {
+        "config": "apps/ng-x-rocket-e2e/playwright.config.ts"
+      }
+    }
+  },
+  "implicitDependencies": ["ng-x-rocket"],
+  "tags": []
+}

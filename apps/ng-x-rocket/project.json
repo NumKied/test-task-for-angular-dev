@@ -1,0 +1,124 @@
+{
+  "name": "ng-x-rocket",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "tags": ["type:app"],
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/ng-x-rocket/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:application",
+      "options": {
+        "outputPath": {
+          "base": "dist/apps/ng-x-rocket"
+        },
+        "index": "apps/ng-x-rocket/src/index.html",
+        "polyfills": ["apps/ng-x-rocket/src/polyfills.ts", "@angular/localize/init"],
+        "tsConfig": "apps/ng-x-rocket/tsconfig.app.json",
+        "assets": [
+          "apps/ng-x-rocket/src/favicon.ico",
+          "apps/ng-x-rocket/src/apple-touch-icon.png",
+          "apps/ng-x-rocket/src/robots.txt",
+          "apps/ng-x-rocket/src/manifest.webmanifest",
+          "apps/ng-x-rocket/src/assets"
+        ],
+        "styles": ["node_modules/@fortawesome/fontawesome-free/css/all.min.css", "apps/ng-x-rocket/src/main.scss"],
+        "scripts": [],
+        "extractLicenses": false,
+        "sourceMap": true,
+        "optimization": false,
+        "namedChunks": true,
+        "browser": "apps/ng-x-rocket/src/main.ts",
+        "stylePreprocessorOptions": {
+          "includePaths": ["."]
+        }
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "6kb",
+              "maximumError": "10kb"
+            }
+          ],
+          "serviceWorker": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/ng-x-rocket/src/environments/environment.ts",
+              "with": "apps/ng-x-rocket/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "ci": {
+          "progress": false
+        }
+      },
+      "defaultConfiguration": "",
+      "outputs": ["{options.outputPath.base}"]
+    },
+    "serve": {
+      "executor": "@nx/angular:dev-server",
+      "options": {
+        "buildTarget": "ng-x-rocket:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "ng-x-rocket:build:production"
+        },
+        "ci": {
+          "progress": false
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@nx/angular:extract-i18n",
+      "options": {
+        "buildTarget": "ng-x-rocket:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "watch": true,
+        "jestConfig": "apps/ng-x-rocket/jest.config.ts"
+      },
+      "configurations": {
+        "ci": {
+          "watch": false,
+          "ci": true,
+          "coverage": true,
+          "silent": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
+        "exclude": ["**/node_modules/**"]
+      }
+    },
+    "write-env": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ngx-scripts env npm_package_version --out apps/ng-x-rocket/src/environments/.env.ts"
+      }
+    }
+  }
+}

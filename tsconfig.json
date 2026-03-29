@@ -1,38 +1,20 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "allowJs": true,
     "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "module": "es2020",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "baseUrl": "./",
-    "paths": {
-      "@app/*": ["src/app/*"],
-      "@core": ["src/app/@core"],
-      "@core/*": ["src/app/@core/*"],
-      "@shared": ["src/app/@shared"],
-      "@shared/*": ["src/app/@shared/*"],
-      "@env/*": ["src/environments/*"]
-    }
+    "sourceMap": false,
+    "module": "commonjs"
   },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "preserveWhitespaces": true
-  }
+  "include": [
+    "**/*.ts",
+    "**/*.js",
+    "src/**/*.spec.ts",
+    "src/**/*.spec.js",
+    "src/**/*.test.ts",
+    "src/**/*.test.js",
+    "src/**/*.d.ts",
+    "apps/ng-x-rocket/jest.config.ts",
+    "apps/ng-x-rocket-e2e/playwright.config.ts"
+  ]
 }

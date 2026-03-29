@@ -1,0 +1,30 @@
+{
+  "name": "weather",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "rxjs": "^6.6.3",
+    "helpers": "0.0.1",
+    "jest-preset-angular": "^16.1.1",
+    "@angular/material": "^20.2.14",
+    "@ngneat/until-destroy": "^8.0.3",
+    "block-builder": "0.0.1"
+  },
+  "sideEffects": false,
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "options": {
+          "main": "packages/index.ts",
+          "additionalEntryPoints": [
+            "packages/state/src/index.ts",
+            "packages/ui/src/index.ts"
+          ],
+          "generateExportsField": true
+        }
+      }
+    }
+  }
+}
