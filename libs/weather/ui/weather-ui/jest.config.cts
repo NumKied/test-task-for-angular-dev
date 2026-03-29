@@ -1,8 +1,8 @@
 module.exports = {
-  displayName: 'weather',
-  preset: '../../jest.preset.js',
+  displayName: 'weather-ui',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/weather',
+  coverageDirectory: '../../../../coverage/libs/weather/ui/weather-ui',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

@@ -1232,15 +1232,15 @@ module.exports = {
         depConstraints: [
           {
             sourceTag: 'type:app',
-            onlyDependOnLibsWithTags: ['type:feature', 'type:ui', 'type:util'],
+            onlyDependOnLibsWithTags: ['type:feature', 'type:ui', 'type:util', 'type:state'],
           },
           {
             sourceTag: 'type:feature',
-            onlyDependOnLibsWithTags: ['type:ui', 'type:util'],
+            onlyDependOnLibsWithTags: ['type:ui', 'type:util', 'type:state'],
           },
           {
             sourceTag: 'type:ui',
-            onlyDependOnLibsWithTags: ['type:ui', 'type:util'],
+            onlyDependOnLibsWithTags: ['type:ui', 'type:util', 'type:state'],
           },
           {
             sourceTag: 'type:util',

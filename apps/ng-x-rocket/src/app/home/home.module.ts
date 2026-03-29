@@ -5,7 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../@shared';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { Weather } from 'weather';
+import { Weather } from 'weather-ui';
 
 @NgModule({
   imports: [CommonModule, TranslateModule, SharedModule, HomeRoutingModule, Weather],

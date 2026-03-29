@@ -6,7 +6,7 @@ import { SharedModule } from '../@shared';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 
-import { Weather } from 'weather';
+import { Weather } from 'weather-ui';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

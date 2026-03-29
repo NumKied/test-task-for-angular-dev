@@ -5,13 +5,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 import { BlockBuilder } from 'block-builder';
-import { WeatherState } from '../../state';
+import { WeatherState } from 'weather-state';
 
 @UntilDestroy()
 @Component({
-  selector: 'lib-weather',
-  templateUrl: './weather.html',
-  styleUrl: './weather.scss',
+  selector: 'lib-weather-ui',
+  templateUrl: './weather-ui.html',
+  styleUrl: './weather-ui.scss',
   imports: [BlockBuilder, MatButtonModule],
 })
 export class Weather {
