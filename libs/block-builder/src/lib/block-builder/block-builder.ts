@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, Input, OnInit, signal, WritableSignal, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray } from '@angular/cdk/drag-drop';
 
@@ -7,6 +7,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 
 interface Block {
   key: string;
@@ -28,17 +29,24 @@ interface FlatObject {
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
+    MatSnackBarModule,
     CdkDropList,
     CdkDrag,
   ],
 })
 export class BlockBuilder implements OnInit {
   @Input() public blockObject: { [key: string]: any } | null = {};
+  @ViewChildren('blockEl')
+  public blockEls: QueryList<ElementRef> = new QueryList<ElementRef>();
 
+  public isDisabled: boolean = false;
+  public highlightedBlock: number = 0;
   public flatObject: FlatObject = {};
   public blocks: WritableSignal<Block[]> = signal([]);
   public keysArr: WritableSignal<string[]> = signal([]);
   public defaultBlock: WritableSignal<Block> = signal({ key: '', value: '' });
+
+  constructor(private matSnackBar: MatSnackBar) {}
 
   public ngOnInit() {
     if (this.blockObject) {
@@ -60,6 +68,12 @@ export class BlockBuilder implements OnInit {
 
     blocks[blockIndex] = { key: newKey, value: this.flatObject[newKey] };
     this.blocks.set(blocks);
+
+    if (this.isDisabled && this.highlightedBlock === blockIndex) {
+      this.isDisabled = false;
+      this.blockEls.map((block) => block)[blockIndex].nativeElement.classList.remove('highlighted');
+      this.matSnackBar.dismiss();
+    }
   }
 
   public deleteBlock(blockIndex: number): void {
@@ -74,6 +88,17 @@ export class BlockBuilder implements OnInit {
 
     moveItemInArray(blocks, event.previousIndex, event.currentIndex);
     this.blocks.set(blocks);
+  }
+
+  public startTimer(): void {
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * this.blocks().length);
+
+      this.isDisabled = true;
+      this.highlightedBlock = randomIndex;
+      this.blockEls.map((block) => block)[randomIndex].nativeElement.classList.add('highlighted');
+      this.matSnackBar.open('Change highlighted block', 'Ok', { duration: 5000 });
+    }, 5000);
   }
 
   private formatObject(incomingObject: { [key: string]: any }): FlatObject {
