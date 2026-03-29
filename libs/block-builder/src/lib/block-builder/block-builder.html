@@ -23,7 +23,7 @@
 
       <span class="block-value">{{block.value}}</span>
 
-      <button matIconButton class="delete-block" (click)="deleteBlock(blockIndex)">
+      <button matIconButton class="delete-block" (click)="deleteBlock(blockIndex)" [disabled]="isDisabled">
         <mat-icon>delete</mat-icon>
       </button>
     </div>
