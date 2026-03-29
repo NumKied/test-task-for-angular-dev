@@ -3,16 +3,18 @@
  * See docs/coding-guide/e2e-tests.md for more info.
  */
 
-import { browser, element, by } from 'protractor';
+import { Page } from '@playwright/test';
 
 export class AppSharedPage {
+  constructor(private page: Page) {}
+
   async navigateAndSetLanguage() {
-    // Forces default language
     await this.navigateTo();
-    await browser.executeScript(() => localStorage.setItem('language', 'en-US'));
+    // Forces default language
+    await this.page.evaluate(() => localStorage.setItem('language', 'en-US'));
   }
 
   async navigateTo() {
-    await browser.get('/');
+    await this.page.goto('/');
   }
 }

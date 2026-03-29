@@ -3,12 +3,12 @@
  * See docs/coding-guide/e2e-tests.md for more info.
  */
 
-import { browser, element, by } from 'protractor';
+import { Page } from '@playwright/test';
 
 export class ShellPage {
-  welcomeText = element(by.css('app-root h1'));
+  constructor(private page: Page) {}
 
-  getParagraphText() {
-    return this.welcomeText.getText();
+  async getParagraphText() {
+    return this.page.textContent('app-root h1');
   }
 }

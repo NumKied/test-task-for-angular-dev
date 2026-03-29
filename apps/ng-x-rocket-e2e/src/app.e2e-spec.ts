@@ -1,29 +1,38 @@
-import { browser, ExpectedConditions as until } from 'protractor';
+import { test, expect, Page } from '@playwright/test';
 import { LoginPage } from './page-objects/login.po';
 import { AppSharedPage } from './page-objects/app-shared.po';
 import { ShellPage } from './page-objects/shell.po';
 
-describe('when the app loads', () => {
-  const login = new LoginPage();
-  const app = new AppSharedPage();
-  const shell = new ShellPage();
+test.describe('when the app loads', () => {
+  let page: Page;
+  let login: LoginPage;
+  let app: AppSharedPage;
+  let shell: ShellPage;
 
-  beforeAll(async () => {
+  test.beforeAll(async ({ browser }) => {
+    page = await browser.newPage();
+    login = new LoginPage(page);
+    app = new AppSharedPage(page);
+    shell = new ShellPage(page);
     await app.navigateAndSetLanguage();
   });
 
-  it('should display the login page', async () => {
-    expect(await browser.getCurrentUrl()).toContain('/login');
+  test.afterAll(async () => {
+    await page.close();
   });
 
-  describe('and the user logs in', () => {
-    beforeAll(async () => {
+  test('should display the login page', async () => {
+    await expect(page).toHaveURL(/\/login/);
+  });
+
+  test.describe('and the user logs in', () => {
+    test.beforeAll(async () => {
       await login.login();
     });
 
-    it('should display the hello message', async () => {
-      await browser.wait(until.visibilityOf(shell.welcomeText), 5000, 'Element taking too long to appear');
-      expect(await shell.getParagraphText()).toEqual('Hello world !');
+    test('should display the hello message', async () => {
+      await page.waitForSelector('app-root h1');
+      await expect(await shell.getParagraphText()).toEqual('Hello world !');
     });
   });
 });
