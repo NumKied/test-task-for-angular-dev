@@ -17,6 +17,10 @@ export default [
           allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
           depConstraints: [
             {
+              sourceTag: 'type:app',
+              onlyDependOnLibsWithTags: ['type:feature', 'type:ui', 'type:util'],
+            },
+            {
               sourceTag: 'type:feature',
               onlyDependOnLibsWithTags: ['type:ui', 'type:util'],
             },
@@ -31,6 +35,7 @@ export default [
           ],
         },
       ],
+      '@typescript-eslint/no-empty-function': 'off',
     },
   },
   {
