@@ -16,7 +16,7 @@ describe('AuthenticationService', () => {
     authenticationService = TestBed.inject(AuthenticationService);
     credentialsService = TestBed.inject(CredentialsService);
     credentialsService.credentials = null;
-    spyOn(credentialsService, 'setCredentials').and.callThrough();
+    jest.spyOn(credentialsService, 'setCredentials');
   });
 
   describe('login', () => {
@@ -65,7 +65,8 @@ describe('AuthenticationService', () => {
       // Assert
       request.subscribe(() => {
         expect(credentialsService.setCredentials).toHaveBeenCalled();
-        expect((credentialsService.setCredentials as jasmine.Spy).calls.mostRecent().args[1]).toBe(undefined);
+        const calls = (credentialsService.setCredentials as jest.Mock).mock.calls;
+        expect(calls[calls.length - 1][1]).toBe(undefined);
       });
     }));
 
@@ -81,7 +82,8 @@ describe('AuthenticationService', () => {
       // Assert
       request.subscribe(() => {
         expect(credentialsService.setCredentials).toHaveBeenCalled();
-        expect((credentialsService.setCredentials as jasmine.Spy).calls.mostRecent().args[1]).toBe(true);
+        const calls = (credentialsService.setCredentials as jest.Mock).mock.calls;
+        expect(calls[calls.length - 1][1]).toBe(true);
       });
     }));
   });

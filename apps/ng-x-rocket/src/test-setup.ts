@@ -1,4 +1,14 @@
-import 'jest-preset-angular';
+import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
+
+setupZoneTestEnv({
+  errorOnUnknownElements: true,
+  errorOnUnknownProperties: true,
+});
+
+jest.mock('@larrym/ngx-translate-extract-marker', () => ({
+  marker: (s: string) => s,
+  _: (s: string) => s,
+}));
 
 /* global mocks for jsdom */
 const storageMock = () => {

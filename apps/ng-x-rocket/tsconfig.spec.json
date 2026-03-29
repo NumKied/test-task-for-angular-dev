@@ -16,5 +16,5 @@
     "**/*.d.ts",
     "jest.config.ts"
   ],
-  "files": []
+  "files": ["src/test-setup.ts"]
 }

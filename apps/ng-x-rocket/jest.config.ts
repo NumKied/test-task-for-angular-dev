@@ -1,7 +1,7 @@
 module.exports = {
   displayName: 'ng-x-rocket',
   preset: '../../jest.preset.js',
-  setupFilesAfterEnv: ['<rootDir>/src/setup-jest.ts'],
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../coverage/apps/ng-x-rocket',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [

@@ -29,7 +29,7 @@ class MockTranslateService {
 describe('I18nService', () => {
   let i18nService: I18nService;
   let translateService: TranslateService;
-  let onLangChangeSpy: jasmine.Spy;
+  let onLangChangeSpy: jest.Mock;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -40,11 +40,11 @@ describe('I18nService', () => {
     translateService = TestBed.inject(TranslateService);
 
     // Create spies
-    onLangChangeSpy = jasmine.createSpy('onLangChangeSpy');
+    onLangChangeSpy = jest.fn().mockName('onLangChangeSpy');
     translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       onLangChangeSpy(event.lang);
     });
-    spyOn(translateService, 'use').and.callThrough();
+    jest.spyOn(translateService, 'use');
   });
 
   afterEach(() => {

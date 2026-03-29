@@ -6,13 +6,15 @@ import { SharedModule } from '../@shared';
 import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 
+import { Weather } from 'weather';
+
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [CoreModule, SharedModule, HttpClientTestingModule],
+      imports: [CoreModule, SharedModule, HttpClientTestingModule, Weather],
       declarations: [HomeComponent],
       providers: [QuoteService],
     }).compileComponents();

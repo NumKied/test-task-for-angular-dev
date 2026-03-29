@@ -8,6 +8,7 @@
     "start": "nx serve ng-x-rocket",
     "lint": "nx run-many --target=lint --all",
     "test": "nx test ng-x-rocket",
+    "test:ci": "nx test ng-x-rocket --watch=false",
     "e2e": "nx e2e ng-x-rocket-e2e",
     "prettier": "prettier --write \"./apps/**/*.{ts,js,html,scss}\"",
     "prettier:check": "prettier --list-different \"./apps/**/*.{ts,js,html,scss}\"",
