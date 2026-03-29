@@ -33,7 +33,7 @@ interface FlatObject {
   ],
 })
 export class BlockBuilder implements OnInit {
-  @Input() public blockObject: { [key: string]: any } = {};
+  @Input() public blockObject: { [key: string]: any } | null = {};
 
   public flatObject: FlatObject = {};
   public blocks: WritableSignal<Block[]> = signal([]);

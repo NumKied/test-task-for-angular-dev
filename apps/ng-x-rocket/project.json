@@ -2,6 +2,7 @@
   "name": "ng-x-rocket",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
+  "tags": ["type:app"],
   "generators": {
     "@schematics/angular:component": {
       "style": "scss"

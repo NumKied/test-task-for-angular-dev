@@ -4,17 +4,22 @@
   "sourceRoot": "libs/block-builder/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["ui"],
+  "tags": ["type:ui"],
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "outputPath": "dist/libs/block-builder",
-        "main": "libs/block-builder/src/index.ts",
-        "tsConfig": "libs/block-builder/tsconfig.lib.json",
-        "assets": ["libs/block-builder/*.md"]
-      }
+        "project": "libs/block-builder/ng-package.json",
+        "tsConfig": "libs/block-builder/tsconfig.lib.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/block-builder/tsconfig.lib.prod.json"
+        },
+        "development": {}
+      },
+      "defaultConfiguration": "production"
     },
     "test": {
       "executor": "@nx/jest:jest",

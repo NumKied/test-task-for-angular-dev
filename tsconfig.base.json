@@ -16,11 +16,11 @@
     "lib": ["es2018", "dom"],
     "baseUrl": ".",
     "paths": {
-      "block-builder": ["libs/block-builder/src/index.ts"],
       "weather": ["libs/weather/packages/index.ts"],
       "weather/state": ["libs/weather/packages/state/index.ts"],
       "weather/ui": ["libs/weather/packages/ui/index.ts"],
-      "helpers": ["libs/shared/helpers/src/index.ts"]
+      "helpers": ["libs/shared/helpers/src/index.ts"],
+      "block-builder": ["libs/block-builder/src/index.ts"]
     },
     "useDefineForClassFields": false,
     "rootDir": "."
