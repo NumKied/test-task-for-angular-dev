@@ -9,6 +9,9 @@
   align-items: center;
   margin-bottom: 28px;
   background-color: #e9ecef;
+  &.highlighted {
+    background-color: #ff6347;
+  }
 
   .block-value,
   .delete-block {

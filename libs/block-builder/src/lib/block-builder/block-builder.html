@@ -1,10 +1,20 @@
 <div class="blocks-section">
-  <div class="blocks" cdkDropList [cdkDropListData]="blocks()" (cdkDropListDropped)="dropBlock($event)">
+  <div
+    class="blocks"
+    cdkDropList
+    [cdkDropListData]="blocks()"
+    (cdkDropListDropped)="dropBlock($event)"
+    [cdkDropListDisabled]="isDisabled"
+  >
     @for (block of blocks(); let blockIndex = $index; track blockIndex) {
-    <div class="block" cdkDrag>
+    <div class="block" #blockEl cdkDrag>
       <mat-form-field subscriptSizing="dynamic">
         <mat-label>Choose an option</mat-label>
-        <mat-select [value]="block.key" (valueChange)="updateBlock($event, blockIndex)">
+        <mat-select
+          [value]="block.key"
+          (valueChange)="updateBlock($event, blockIndex)"
+          [disabled]="isDisabled && highlightedBlock !== blockIndex"
+        >
           @for (key of keysArr(); track key) {
           <mat-option [value]="key">{{key}}</mat-option>
           }
@@ -20,5 +30,8 @@
     }
   </div>
 
-  <button matButton="filled" (click)="addBlock()">Add block</button>
+  <button matButton="filled" (click)="addBlock()" [disabled]="isDisabled">Add block</button>
+  @if (blocks().length) {
+  <button matButton="filled" (click)="startTimer()" [disabled]="isDisabled">Start Timer</button>
+  }
 </div>
